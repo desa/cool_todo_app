@@ -1,0 +1,9 @@
+<h1>This is a new page</h1>
+
+<%= form_for @task do |f| %>
+
+    <%= f.text_field :content %>
+    <%= f.check_box :complete %>
+    <%= f.submit "save task" %>
+
+<% end %>

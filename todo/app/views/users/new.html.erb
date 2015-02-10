@@ -1,0 +1,16 @@
+<h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p>
+	<%= form_for @us do |f| %>
+          <div>
+          Email: <%= f.text_field :email %>
+          </div>
+          <div>
+            Password: <%= f.password_field :password %>
+          </div>
+          <div>
+            Confirmation: <%= f.password_field :password_confirmation %>
+          </div>
+          <div>
+            <%= f.submit %>
+          </div>
+      <% end %>

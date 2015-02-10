@@ -30,3 +30,24 @@ $.get(usersTasksURL)
     });
     $('body').append($container);
 });
+
+$('#task-form').submit(function(event) {
+                 event.preventDefault();
+                 var $content = $('#task-content');
+                 console.log("submitted", $content.val());
+                 
+$.post(usersTasksURL, {task: {content: $content.val(), complete: false}})
+  .done(function(task) {
+     var $container = $('.container');
+      var $content = $("<div style='color:pink;'>"+task.content+"</div>");
+      var $complete = $("<div style='color:blue;'>"+task.complete+"</div>");
+      var $created_at = $("<div style='color:green;'>"+task.created_at+"</div>");
+      $complete.append($created_at);
+      $content.append($complete);
+      $container.append($content); 
+     console.log(task);
+  });
+                 //Trigger Post Request
+                 $content.val("");
+                 $content.focus();
+               });

@@ -2,3 +2,7 @@
 <p>Find me in app/views/users/show.html.erb</p>
 Welcome, <%= current_user.email %>!.
 <%# link_to "logout", controller: "sessions", action: "destroy", method: :delete %>
+<form id='task-form'>
+	<input type='text' id='task-content' placeholder='Task...'/>
+	<button class='task-button'>Add Task</button>
+</form>

@@ -1,4 +1,10 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 Welcome, <%= current_user.email %>!.
+<form id="task-form">
+	<input id="content" type="text" placeholder="Todo" name="content"/>
+	<button id="task-button">Add Todo</button>
+</form>
+<div id="tasks-con">
+</div>
 <%# link_to "logout", controller: "sessions", action: "destroy", method: :delete %>

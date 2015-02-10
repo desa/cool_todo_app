@@ -3,20 +3,16 @@ class TasksController < ApplicationController
 	before_action :get_user
 
 	def index
-
 		@tasks = @user.tasks.all
 		render :index
 	end
 
 	def new
-
 		@task = @user.tasks.new
 		render :new
 	end
 
 	def create
-
-
 		new_task = params.require(:task).permit(:content, :complete)
 		task = @user.tasks.create(new_task)
 		redirect_to "/users/#{@user.id}/tasks/#{task.id}"
@@ -61,8 +57,13 @@ class TasksController < ApplicationController
 	private
 
 		def get_user
-			user_id = params[:user_id]
-			@user = User.find(user_id)
+			if params[:user_id]
+				user_id = params[:user_id]
+				@user = User.find(user_id)
+			else
+				task_id = params[:nested_task_id]
+				@nested_task = Task.find(task_id)
+			end
 		end
 
 end

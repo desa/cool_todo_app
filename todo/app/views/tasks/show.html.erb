@@ -1,4 +1,4 @@
 <h1>show page</h1>
-<%= @meow_mix.content %><br>
-<%= @meow_mix.complete %><br>
+<%= @task.content %><br>
+<%= @task.complete %><br>
 <%= button_to "Delete", destroy_task_path(@user, @task), method: :delete %>

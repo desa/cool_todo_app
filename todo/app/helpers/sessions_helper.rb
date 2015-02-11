@@ -1,5 +1,6 @@
 module SessionsHelper
 	def login(user)
+		byebug
 		session[:user_id] = user.id
 		@current_user = user
 	end
@@ -15,6 +16,8 @@ module SessionsHelper
 	end
 
 	def current_user
-		@current_user ||= User.find(session[:user_id])
+		# p session[:user_id]
+		# @current_user ||= User.find(session[:user_id])
+		@current_user = User.first
 	end
 end
